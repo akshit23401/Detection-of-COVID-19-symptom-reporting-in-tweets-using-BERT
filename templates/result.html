@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		<div id="brandname">
+			NLP App
+		</div>
+		<h2>Detection of COVID-19 symptom-reporting in Tweets</h2>
+		
+	</div>
+	</header>
+	<p style="color:blue;font-size:20;text-align: center;"><b>Results for the Tweet</b></p>
+	<div class="results">
+
+
+	{% if prediction == 1%}
+	<h2 style="color:red;">Secondary - The user is reporting symptoms of some friend / relative / neighbour / someone they met</h2>
+	{% elif prediction == 0%}
+	<h2 style="color:blue;">Primary - The user who posted the tweet is reporting symptoms of himself/herself.</h2>
+	{% elif prediction == 2%}
+	<h2 style="color:blue;">Non-Reporting - The user is not reporting anyone experiencing COVID-19 symptoms</h2>
+	{% elif prediction == 3%}
+	<h2 style="color:blue;">Third-Party Reporting The user is reporting symptoms of some celebrity / third-party person</h2>
+	{% endif %}
+
+	</div>
+
+</body>
+</html>
